@@ -2,8 +2,14 @@
   <div class="article-page">
     <div class="header">
       <div class="left">
-        <a href="#">推荐</a>
-        <a href="#">最新</a>
+        <a
+          href="#"
+          :class="{ active: sorter === 'weight_desc' }"
+          @click="changeSorter('weight_desc')"
+        >
+          推荐
+        </a>
+        <a href="#" :class="{ active: sorter === null }" @click="changeSorter(null)">最新</a>
       </div>
       <img src="@/assets/logo.png" alt="" />
     </div>
@@ -79,6 +85,14 @@ export default {
         this.finished = true
       }
       console.log(this.list, 'list')
+    },
+    changeSorter(type) {
+      this.sorter = type
+      this.refreshing = true
+      this.onLoad()
+      setTimeout(() => {
+        this.refreshing = false
+      }, 600)
     }
   }
 }
@@ -98,8 +112,23 @@ export default {
     .left {
       font-size: 14px;
       a {
-        color: gray;
+        position: relative;
+        color: #c2bbbb;
         margin-right: 5px;
+        &.active {
+          color: #000;
+          &::after {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            transform: translateX(35%);
+            content: '';
+            width: 16px;
+            height: 3px;
+            background-color: #000;
+            border-radius: 5px;
+          }
+        }
       }
     }
     img {
