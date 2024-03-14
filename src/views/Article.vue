@@ -8,7 +8,7 @@
       <img src="@/assets/logo.png" alt="" />
     </div>
     <div class="content">
-      <ArticleItem></ArticleItem>
+      <ArticleItem v-for="item in list" :key="item.id" :item="item"></ArticleItem>
     </div>
   </div>
 </template>

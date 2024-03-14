@@ -1,45 +1,61 @@
 <template>
   <div class="detail-item">
     <div class="top">
-      <img src="https://picsum.photos/30" alt="" />
+      <img :src="item.avatar" alt="" />
       <div class="right">
-        <h4 class="headline">标题标题</h4>
-        <div class="creator">作者 | 时间</div>
+        <h4 class="headline">{{ item.stem }}</h4>
+        <div class="creator">{{ item.creator }} | {{ item.createdAt }}</div>
       </div>
     </div>
     <div class="main">
       <p class="content">
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx得劲氪金xxxxxxxxxxxxxxxxxxxxx
+        {{ clearHtml(item.content) }}
       </p>
-      <p class="data">点赞数 xx | 阅读数 xx</p>
+      <p class="data">点赞数 {{ item.likeCount }} | 阅读数 {{ item.views }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'article-item'
+  name: 'article-item',
+  props: {
+    item: {
+      type: Object,
+      default: () => {}
+    }
+  },
+  methods: {
+    clearHtml(str) {
+      return str.replace(/<[^>]+>/g, '')
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .detail-item {
-  height: 100px;
   padding: 10px;
+  font-family: '等线';
   .top {
     display: flex;
     align-items: center;
     img {
       margin-right: 8px;
+      width: 40px;
+      height: 40px;
     }
     .right {
       .headline {
         margin: 0;
+        font-size: 16px;
         line-height: 16px;
         margin-bottom: 3px;
       }
       .creator {
         line-height: 16px;
+        font-size: 12px;
+        color: #ccc;
       }
     }
   }
@@ -48,7 +64,7 @@ export default {
 
     .content {
       margin: 6px 0;
-      font-size: 16px;
+      font-size: 14px;
       word-break: break-all;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -60,7 +76,7 @@ export default {
       -webkit-box-orient: vertical;
     }
     .data {
-      font-size: 14px;
+      font-size: 12px;
       margin: 6px 0;
     }
   }
