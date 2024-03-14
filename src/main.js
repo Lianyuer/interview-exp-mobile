@@ -14,6 +14,10 @@ import {
   PullRefresh,
   Skeleton,
   Icon,
+  Grid,
+  GridItem,
+  Cell,
+  CellGroup,
   Toast
 } from 'vant'
 
@@ -27,6 +31,10 @@ Vue.use(List)
 Vue.use(PullRefresh)
 Vue.use(Skeleton)
 Vue.use(Icon)
+Vue.use(Grid)
+Vue.use(GridItem)
+Vue.use(Cell)
+Vue.use(CellGroup)
 Vue.use(Toast)
 
 Vue.component('ArticleItem', ArticleItem)
