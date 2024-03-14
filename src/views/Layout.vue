@@ -1,14 +1,40 @@
 <template>
   <div class="layout-page">
-    <!-- 二级路由 -->
-    <router-view></router-view>
+    <div class="main">
+      <!-- 二级路由 -->
+      <router-view></router-view>
+    </div>
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="notes-o" to="/article">首页</van-tabbar-item>
+      <van-tabbar-item icon="star-o" to="/collect">收藏</van-tabbar-item>
+      <van-tabbar-item icon="like-o" to="/like">喜欢</van-tabbar-item>
+      <van-tabbar-item icon="user-o" to="/user">我的</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'h5-layout'
+  name: 'h5-layout',
+  data() {
+    return {
+      active: 0
+    }
+  }
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.layout-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .main {
+    flex: 1;
+    overflow: scroll;
+  }
+  .van-tabbar {
+    position: relative;
+  }
+}
+</style>
