@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 import ArticleItem from '@/components/ArticleItem'
-import { Tabbar, TabbarItem, Form, Field, Button, NavBar, Toast } from 'vant'
+import { Tabbar, TabbarItem, Form, Field, Button, NavBar, List, PullRefresh, Toast } from 'vant'
 
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
@@ -11,6 +11,8 @@ Vue.use(Form)
 Vue.use(Field)
 Vue.use(Button)
 Vue.use(NavBar)
+Vue.use(List)
+Vue.use(PullRefresh)
 Vue.use(Toast)
 
 Vue.component('ArticleItem', ArticleItem)
