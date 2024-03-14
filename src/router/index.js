@@ -17,7 +17,7 @@ const routes = [
       { path: '/user', component: () => import('../views/User') }
     ]
   },
-  { path: '/detail', component: () => import('../views/ArticleDetail') },
+  { path: '/detail/:id', component: () => import('../views/ArticleDetail') },
   { path: '*', component: () => import('../views/NotFound') }
 ]
 

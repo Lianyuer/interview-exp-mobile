@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-item">
+  <div class="detail-item" @click="$router.push(`/detail/${item.id}`)">
     <div class="top">
       <img :src="item.avatar" alt="" />
       <div class="right">
