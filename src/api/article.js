@@ -19,3 +19,11 @@ export const getArticleDetail = (id) => {
     }
   })
 }
+
+// 点赞和收藏，取消点赞和取消收藏
+export const changeArticleOpt = (data) => {
+  return request.post('/interview/opt', {
+    id: data.id,
+    optType: data.optType
+  })
+}

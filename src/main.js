@@ -13,6 +13,7 @@ import {
   List,
   PullRefresh,
   Skeleton,
+  Icon,
   Toast
 } from 'vant'
 
@@ -25,6 +26,7 @@ Vue.use(NavBar)
 Vue.use(List)
 Vue.use(PullRefresh)
 Vue.use(Skeleton)
+Vue.use(Icon)
 Vue.use(Toast)
 
 Vue.component('ArticleItem', ArticleItem)
