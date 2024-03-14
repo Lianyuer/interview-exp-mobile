@@ -39,7 +39,7 @@ export default {
   methods: {
     async onSubmit(values) {
       const { data } = await loginFn(values)
-      setToken(data.data.token)
+      setToken(data.token)
       this.$toast.success('登录成功')
       this.$router.push('/')
     }
