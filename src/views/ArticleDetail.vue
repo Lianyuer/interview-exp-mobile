@@ -1,7 +1,7 @@
 <template>
   <div class="detail-page">
     <van-nav-bar title="面经详情" left-text="返回" left-arrow @click-left="$router.back()" />
-    <div class="article">
+    <div class="article" v-if="articleInfo">
       <div class="header">
         <h3 class="headline">{{ articleInfo.stem }}</h3>
         <div class="info">
@@ -16,6 +16,10 @@
       </div>
       <div class="content" v-html="articleInfo.content"></div>
     </div>
+    <div class="skeleton" v-else>
+      <van-skeleton class="skeleton1" :row="1" />
+      <van-skeleton avatar :row="2" />
+    </div>
   </div>
 </template>
 
@@ -25,7 +29,7 @@ export default {
   name: 'article-detail',
   data() {
     return {
-      articleInfo: {}
+      articleInfo: null
     }
   },
   async created() {
@@ -42,6 +46,12 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  .van-skeleton {
+    align-items: center;
+  }
+  .skeleton1 {
+    margin: 18px 0;
+  }
   .van-nav-bar {
     position: relative;
     top: 0;
@@ -51,6 +61,7 @@ export default {
     overflow: scroll;
     padding: 0 15px;
     .headline {
+      margin: 18px 0;
     }
     .info {
       display: flex;
@@ -58,10 +69,10 @@ export default {
       img {
         width: 30px;
         height: 30px;
+        margin-right: 16px;
       }
       .right {
         font-size: 14px;
-        margin-left: 5px;
         color: gray;
       }
     }
