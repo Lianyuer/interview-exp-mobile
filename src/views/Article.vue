@@ -54,7 +54,7 @@ export default {
     async onLoad() {
       if (this.refreshing) {
         this.current = 1
-        this.list = []
+        // this.list = []
       } else {
         this.current++
       }
@@ -67,7 +67,9 @@ export default {
       })
       // 添加数据
       if (this.refreshing) {
-        this.list.push(...data.rows)
+        // this.list.push(...data.rows)
+        this.list = []
+        this.list = data.rows
       }
       if (this.loading) {
         this.list.push(...data.rows)
