@@ -27,3 +27,14 @@ export const changeArticleOpt = (data) => {
     optType: data.optType
   })
 }
+
+// 收藏、点赞题目列表查询接口
+export const getArticleOptList = (data) => {
+  return request.get('/interview/opt/list', {
+    params: {
+      optType: data.optType,
+      pageSize: data.pageSize,
+      page: data.page
+    }
+  })
+}
